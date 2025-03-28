@@ -19,7 +19,7 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                turquoise: '#40E0D0', // Hex code for turquoise
+                turquoise: '#40E0D0', // hex code for turquoise
                 seaGreen: '#2E8B57',
                 darkGreen: '#006400',
                 lightGreen: '#90EE90',
