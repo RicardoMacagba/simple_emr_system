@@ -20,24 +20,27 @@
         <style>
             body {
                 font-family: 'Arial', sans-serif;
-                background-color: #40E0D0; /* Turquoise */
+                background-color: #40E0D0;
+                
             }
         </style>
     </head>
     <body class="text-gray-900">
         <!-- Hero Section style="background-image: url('https://media.istockphoto.com/id/527567529/vector/electronic-medical-records.jpg?s=612x612&w=0&k=20&c=f2sF-jEn2xIeg6Ap59EG9vfV4RO_qYGWh62f8YIkVSI=');" style="background-size: cover; background-position: center;" -->
+        {{-- <img src="{{ asset('build/assets/Electronic Medical Records System.png') }}" alt="Welcome Image" class="w-full h-auto"> --}}
         <header class="relative bg-cover bg-center h-screen"> 
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
+            
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-black px-6 ">
+                <img src="{{ asset('build/assets/emr_logo.png') }}" alt="Welcome Image" class="w-15 h-17 mb-10 opacity-20">
                 <h1 class="text-5xl font-bold">Electronic Medical Record System</h1>
                 <p class="mt-4 text-lg max-w-2xl">
                     Transforming healthcare with modern digital solutions. Secure, efficient, and accessible patient records.
                 </p>
                 <div class="mt-6">
-                    <a href="{{ route('register') }}" class="bg-seaGreen text-white px-6 py-3 rounded-lg shadow-lg text-lg hover:bg-green-700">
+                    <a href="{{ route('register') }}" class="bg-seaGreen text-black px-6 py-3 rounded-lg shadow-lg text-lg hover:bg-green-700">
                         Get Started
                     </a>
-                    <a href="{{ route('login') }}" class="ml-4 bg-seaGreen text-white px-6 py-3 rounded-lg shadow-lg text-lg hover:bg-green-700">
+                    <a href="{{ route('login') }}" class="ml-4 bg-seaGreen text-black px-6 py-3 rounded-lg shadow-lg text-lg hover:bg-green-700">
                         Login
                     </a>
                 </div>

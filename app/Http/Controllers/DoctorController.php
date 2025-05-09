@@ -13,7 +13,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        //
+        $doctors = Doctor::all();
+        return view('doctors.index', compact('doctors'));
     }
 
     /**
@@ -21,7 +22,8 @@ class DoctorController extends Controller
      */
     public function store(StoreDoctorRequest $request)
     {
-        //
+        $doctor = Doctor::create($request->validated());
+        return redirect()->route('doctors.index')->with('success', 'Doctor created successfully.');
     }
 
     /**
@@ -29,7 +31,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        return view('doctors.show', compact('doctor'));
     }
 
     /**
@@ -37,7 +39,8 @@ class DoctorController extends Controller
      */
     public function update(UpdateDoctorRequest $request, Doctor $doctor)
     {
-        //
+        $doctor->update($request->validated());
+        return redirect()->route('doctors.index')->with('success', 'Doctor updated successfully.');
     }
 
     /**
@@ -45,6 +48,7 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
-        //
+        $doctor->delete();
+        return redirect()->route('doctors.index')->with('success', 'Doctor deleted successfully.');
     }
 }

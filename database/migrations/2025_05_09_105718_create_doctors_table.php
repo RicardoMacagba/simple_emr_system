@@ -12,12 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('doctors', function (Blueprint $table) {
-            $table->id('doctor_id'); // change the primary key to doctor_id from id
-            $table->foreign('user_id')->references('user_id')->on('users', 'user_id')->onDelete('cascade');
+            $table->id();
             $table->string('name');
-            $table->integer('age');
-            $table->string('gender');
             $table->string('specialization');
+            $table->string('email')->unique();
+            $table->string('phone_number');
             $table->timestamps();
         });
     }

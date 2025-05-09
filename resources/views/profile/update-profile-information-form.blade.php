@@ -81,6 +81,29 @@
                 @endif
             @endif
         </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="birthday" value="{{ __('Birthday') }}" />
+            <x-input id="birthday" type="date" class="mt-1 block w-full" 
+                    wire:model="state.birthday" autocomplete="bday" />
+            <x-input-error for="birthday" class="mt-2" />
+        </div>
+
+        <!-- Phone Number -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="phone_number" value="{{ __('Phone Number') }}" />
+            <x-input id="phone_number" type="tel" class="mt-1 block w-full" 
+                    wire:model="state.phone_number" autocomplete="tel" />
+            <x-input-error for="phone_number" class="mt-2" />
+        </div>
+
+        <!-- Complete Address -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="complete_address" value="{{ __('Complete Address') }}" />
+            <textarea id="complete_address" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500" 
+                    wire:model="state.complete_address" rows="3"></textarea>
+            <x-input-error for="complete_address" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">
