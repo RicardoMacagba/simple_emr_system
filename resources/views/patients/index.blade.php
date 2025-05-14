@@ -21,45 +21,31 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-6">
                     <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
+                        <table class="table-auto w-full border-collapse border border-gray-400">
+                            <thead>
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                                    <th class="px-4 py-2 border border-gray-400">Name</th>
+                                    <th class="px-4 py-2 border border-gray-400">Email</th>
+                                    <th class="px-4 py-2 border border-gray-400">Phone</th>
+                                    <th class="px-4 py-2 border border-gray-400">Gender</th>
+                                    <th class="px-4 py-2 border border-gray-400">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
+                            <tbody>
                                 @foreach($patients as $patient)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm font-medium text-gray-900">
-                                                {{ $patient->first_name }} {{ $patient->last_name }}
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $patient->email }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ $patient->phone }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
-                                            <div class="text-sm text-gray-900">{{ ucfirst($patient->gender) }}</div>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <div class="flex space-x-3">
-                                                <a href="{{ route('patients.show', $patient) }}" class="text-blue-600 hover:text-blue-900">View</a>
-                                                <a href="{{ route('patients.edit', $patient) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                                                <form action="{{ route('patients.destroy', $patient) }}" method="POST" class="inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('Are you sure you want to delete this patient?')">
-                                                        Delete
-                                                    </button>
-                                                </form>
-                                            </div>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $patient->first_name }} {{ $patient->last_name }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $patient->email }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ $patient->phone }}</td>
+                                        <td class="border border-gray-400 px-4 py-2">{{ ucfirst($patient->gender) }}</td>
+                                        <td class="border border-gray-400 px-4 py-2 space-x-2">
+                                            <a href="{{ route('patients.show', $patient->id) }}" class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-1 px-3 rounded">VIEW</a>
+                                            <a href="{{ route('patients.edit', $patient->id) }}" class="bg-yellow-500 hover:bg-yellow-700 text-black font-bold py-1 px-3 rounded">EDIT</a>
+                                            <form action="{{ route('patients.destroy', $patient->id) }}" method="POST" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-black font-bold py-1 px-3 rounded">DELETE</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -73,4 +59,4 @@
             </div>
         </div>
     </div>
-</x-app-layout> 
+</x-app-layout>

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Patient>
@@ -41,6 +42,9 @@ class PatientFactory extends Factory
             'height' => $this->faker->randomFloat(2, 150, 200), // in centimeters
             'weight' => $this->faker->randomFloat(2, 45, 120), // in kilograms
             'notes' => $this->faker->boolean(80) ? $this->faker->paragraph() : null,
+            'name' => $this->faker->name,
+            'age' => $this->faker->numberBetween(1, 100),
+            'medical_history' => $this->faker->sentence,
         ];
     }
 }

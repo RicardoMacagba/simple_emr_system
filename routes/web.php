@@ -30,4 +30,5 @@ Route::middleware([
 
     Route::resource('patients', PatientController::class);
     Route::resource('doctors', DoctorController::class);
+    Route::get('/patients/{id}', [PatientController::class, 'show'])->name('patients.show');
 });

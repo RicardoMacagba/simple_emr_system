@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Patient;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(10)->create();
 
         if (!User::where('email', 'test@example.com')->exists()) {
             User::factory()->create([
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
                 'email' => 'test@example.com',
             ]);
         }
+
+        Patient::factory(50)->create();
 
         $this->call([
             UserSeeder::class,

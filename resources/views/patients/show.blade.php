@@ -105,8 +105,17 @@
                             </button>
                         </form>
                     </div>
+
+                    <div class="mt-6">
+                        <h3 class="text-lg font-bold mb-4">{{ $patient->name }}</h3>
+                        <p><strong>Age:</strong> {{ $patient->age }}</p>
+                        <p><strong>Address:</strong> {{ $patient->address }}</p>
+                        <p><strong>Phone:</strong> {{ $patient->phone }}</p>
+                        <p><strong>Email:</strong> {{ $patient->email }}</p>
+                        <p><strong>Medical History:</strong> {{ $patient->medical_history }}</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout> 
+</x-app-layout>
